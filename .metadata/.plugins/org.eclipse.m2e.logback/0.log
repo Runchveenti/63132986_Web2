@@ -2920,3 +2920,6 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springfra
 2024-03-12 17:07:54,915 [Worker-161: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
 2024-03-12 17:07:54,936 [Worker-161: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
 2024-03-12 17:07:54,943 [Worker-161: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/nguyenngocanhthu/Documents/GitHub/63132986_Web2/DisplayListObjectPagination/src/test/resources
+2024-03-13 15:07:57,272 [Worker-194: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-03-13 15:07:57,294 [Worker-194: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-03-13 15:07:57,309 [Worker-194: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /Users/nguyenngocanhthu/Documents/GitHub/63132986_Web2/DisplayListObjectPagination/src/test/resources

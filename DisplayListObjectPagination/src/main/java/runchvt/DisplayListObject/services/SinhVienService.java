@@ -1,5 +1,10 @@
 package runchvt.DisplayListObject.services;
 
-public class SinhVienService {
+import org.springframework.stereotype.Service;
 
+@Service
+public interface SinhvienService {
+	public Page<SinhVien> findPaginated(Pageable pageable);
+     
+   
 }
