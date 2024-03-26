@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import runchveenti.FormSubmit_Thymeleaf.Models.DTOSinhVien;
+import thiGK.ntu63132986.QLNhanVien.Models.DTONhanVien;
 import thiGK.ntu63132986.QLNhanVien.Models.*;
 import thiGK.ntu63132986.QLNhanVien.Services.*;
 @Controller
@@ -42,14 +42,19 @@ public class NhanVienController {
         }
         return "nhanvien_getAll_Paged";
 	}
+	
 	@GetMapping("/themMoiNV")
-	public String showForm(Model mm) {
+    public String showForm(Model model) {
         DTONhanVien nhanvienNull = new DTONhanVien();
-        mm.addAttribute("nvDTO", nhanvienNull);
+        model.addAttribute("nvDTO", nhanvienNull);
         return "themNhanVien_form";
     }
-	@PostMapping("/themMoiNV")
-	public String submitForm(@ModelAttribute("svDTO") DTONhanVien nv) {
-	    return "themNhanVien_OK";
-	}
+
+    @PostMapping("/themMoiNV")
+    public String submitForm(@ModelAttribute("nvDTO") DTONhanVien nv) {
+        nvService.addNhanVien(new NhanVien(nv.getMaSoNV(), nv.getHoVaTen(), nv.getChucVu(), nv.getDiaChi(),
+                nv.getEmail(), nv.getSoDienThoai()));
+        return "redirect:/themMoiNV/thanhcong";
+    }
+
 }

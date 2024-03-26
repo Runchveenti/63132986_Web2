@@ -41,5 +41,10 @@ public class NhanVienServicelmpl implements NhanVienService {
 	        Page<NhanVien> sinhvienPage = new PageImpl<NhanVien>(list, PageRequest.of(currentPage, pageSize), dsNhanVien.size());
 	        return sinhvienPage;
 		}
+		@Override
+		public void addNhanVien(NhanVien nhanVien) {
+			// TODO Auto-generated method stub
+			
+		}
 
 	}

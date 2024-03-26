@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Thêm mới Nhân viên thành công</title>
-    <style type="text/css">
-        span {
-            display: inline-block;
-            width: 200px;
-            text-align: left;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Thêm mới Nhân viên thành công</title>
+<style type="text/css">
+    span {
+        display: inline-block;
+        width: 200px;
+        text-align: left;
+    }
+</style>
 </head>
 <body>
-    <div align="center">
-        <h2>Thêm Nhân viên thành công!</h2>
-        <span>Mã Số Nhân viên:</span><span th:text="${nvDTO.maSoNV}"></span><br/>
-        <span>Họ và Tên:</span><span th:text="${nvDTO.hoVaTen}"></span><br/>
-        <span>Chức vụ:</span><span th:text="${nvDTO.chucVu}"></span><br/>
-        <span>Địa chỉ:</span><span th:text="${nvDTO.diaChi}"></span><br/>
-        <span>Email:</span><span th:text="${nvDTO.email}"></span><br/>
-        <span>Số điện thoại:</span><span th:text="${nvDTO.soDienThoai}"></span><br/>
-    </div>
+<div align="center">
+    <h2>Thêm Nhân viên thành công!</h2>
+    <span>Mã Số NV:</span><span th:text="${nvDTO.maSoNV}"></span><br/>
+    <span>Họ và Tên:</span><span th:text="${nvDTO.hoVaTen}"></span><br/>
+    <span>Chức vụ:</span><span th:text="${nvDTO.chucVu}"></span><br/>
+    <span>Địa chỉ:</span><span th:text="${nvDTO.diaChi}"></span><br/>
+    <span>Email:</span><span th:text="${nvDTO.email}"></span><br/>
+    <span>Số điện thoại:</span><span th:text="${nvDTO.soDienThoai}"></span><br/>
+</div>
 </body>
 </html>

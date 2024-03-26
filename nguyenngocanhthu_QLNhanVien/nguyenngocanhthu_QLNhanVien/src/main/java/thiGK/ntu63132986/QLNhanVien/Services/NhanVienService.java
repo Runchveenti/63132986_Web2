@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 @Service
 public interface NhanVienService {
 	public Page<NhanVien> findPaginated(Pageable pageable);
+
+	public void addNhanVien(NhanVien nhanVien);
      
    
 }

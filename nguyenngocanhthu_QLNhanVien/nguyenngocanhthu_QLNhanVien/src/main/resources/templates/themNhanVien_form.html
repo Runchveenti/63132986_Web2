@@ -3,30 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Thêm mới Nhân viên</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div align="center">
-        <h1>Thêm mới Nhân viên</h1>
+    <div class="container">
+        <h1 class="mt-5 mb-4">Thêm mới Nhân viên</h1>
         <form action="#" th:action="@{/themMoiNV}" method="post" th:object="${nvDTO}">
-            <label>Mã số nhân viên:</label>
-            <input type="text" th:field="*{maSoNV}" /><br/>
- 
-            <label>Họ và Tên:</label>
-            <input type="text" th:field="*{hoVaTen}" /><br/>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Mã số NV:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{maSoNV}" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Họ và Tên:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{hoVaTen}" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Chức vụ:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{chucVu}" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Địa chỉ:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" th:field="*{diaChi}" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" th:field="*{email}" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Số điện thoại:</label>
+                <div class="col-sm-10">
+                    <input type="tel" class="form-control" th:field="*{soDienThoai}" />
+                </div>
+            </div>
             
-            <label>Chức vụ:</label>
-            <input type="text" th:field="*{chucVu}" /><br/>
-            
-            <label>Địa chỉ:</label>
-            <input type="text" th:field="*{diaChi}" /><br/>
-            
-            <label>Email:</label>
-            <input type="email" th:field="*{email}" /><br/>
-            
-            <label>Số điện thoại:</label>
-            <input type="text" th:field="*{soDienThoai}" /><br/>
-            
-            <button type="submit">Thực hiện thêm</button>    
+            <button type="submit" class="btn btn-primary">Thực hiện thêm</button>
         </form>
     </div>
 </body>

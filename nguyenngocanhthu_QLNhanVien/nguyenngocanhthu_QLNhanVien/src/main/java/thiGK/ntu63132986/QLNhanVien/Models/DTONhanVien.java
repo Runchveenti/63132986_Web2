@@ -1,5 +1,4 @@
 package thiGK.ntu63132986.QLNhanVien.Models;
-
 public class DTONhanVien {
     private String maSoNV;
     private String hoVaTen;
@@ -22,6 +21,38 @@ public class DTONhanVien {
     
     public void setHoVaTen(String hoVaTen) {
         this.hoVaTen = hoVaTen;
+    }
+    
+    public String getChucVu() {
+        return chucVu;
+    }
+    
+    public void setChucVu(String chucVu) {
+        this.chucVu = chucVu;
+    }
+    
+    public String getDiaChi() {
+        return diaChi;
+    }
+    
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public String getSoDienThoai() {
+        return soDienThoai;
+    }
+    
+    public void setSoDienThoai(String soDienThoai) {
+        this.soDienThoai = soDienThoai;
     }
     
     public DTONhanVien(String maSoNV, String hoVaTen, String chucVu, String diaChi, String email, String soDienThoai) {
