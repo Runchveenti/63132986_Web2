@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm mới Nhân viên</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Thêm mới Nhân viên</h1>
+        <form action="#" th:action="@{/themMoiNV}" method="post" th:object="${nvDTO}">
+            <label>Mã số nhân viên:</label>
+            <input type="text" th:field="*{maSoNV}" /><br/>
+ 
+            <label>Họ và Tên:</label>
+            <input type="text" th:field="*{hoVaTen}" /><br/>
+            
+            <label>Chức vụ:</label>
+            <input type="text" th:field="*{chucVu}" /><br/>
+            
+            <label>Địa chỉ:</label>
+            <input type="text" th:field="*{diaChi}" /><br/>
+            
+            <label>Email:</label>
+            <input type="email" th:field="*{email}" /><br/>
+            
+            <label>Số điện thoại:</label>
+            <input type="text" th:field="*{soDienThoai}" /><br/>
+            
+            <button type="submit">Thực hiện thêm</button>    
+        </form>
+    </div>
+</body>
+</html>
