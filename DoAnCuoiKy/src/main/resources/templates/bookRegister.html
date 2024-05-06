@@ -13,7 +13,7 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 		<div class="container-fluid">
-			<a class="navbar-brand text-warning" href="#">Book Store ShuTy</a>
+			<a class="navbar-brand text-warning" href="index">Book Store ShuTy</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -45,8 +45,28 @@
 			</div>
 			
 			<div class="mb-3">
+				<label for="category" class="form-label">Category</label> 
+				<select class="form-select" id="category" name="category">
+			        <option value="">Select a book category</option>
+			        <option value="1">Comic book</option>
+			        <option value="2">Fairy tale</option>
+			        <option value="3">Myth</option>
+			        <option value="4">Detective story</option>
+			        <option value="5">Funny story</option>
+			        <option value="6">Fable</option>
+			        <option value="7">Ghost story</option>
+			    </select>
+			</div>
+			
+			<div class="mb-3">
 				<label for="author" class="form-label">Author</label> 
-				<input type="text" class="form-control" name="author">
+				<select class="form-select" id="author" name="author">
+			        <option value="">Select an author</option>
+			        <option value="1">Author 1</option>
+			        <option value="2">Author 2</option>
+			        <option value="3">Author 3</option>
+			        
+			    </select>
 			</div>
 			
 			<div class="mb-3">
@@ -54,7 +74,7 @@
 				<input type="text" class="form-control" name="price">
 			</div>
 			
-			<center><button type="submit" class="btn btn-primary">Submit</button></center>
+			<center><button type="submit" id="button_submit" class="btn btn-primary">Submit</button></center>
 		</form>
 	</div>
 	<script
