@@ -1,23 +1,33 @@
 package nguyenngocanhthu.BookStoreManagement.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="book")
 public class Books {
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String name;
-	private String author;
-	private String price;
-	public Books(int id, String name, String author, String price) {
+	@Column(name="title")
+	private String title;
+	@Column(name="category_id")
+	private String category_id;
+	@Column(name="author_id")
+	private String author_id;
+	@Column(name="price")
+	private double price;
+	public Books(int id, String title, String category_id, String author_id, double price) {
 		super();
 		this.id = id;
-		this.name = name;
-		this.author = author;
+		this.title = title;
+		this.category_id = category_id;
+		this.author_id = author_id;
 		this.price = price;
 	}
 	public Books() {
@@ -31,21 +41,27 @@ public class Books {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+		return title;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String title) {
+		this.title = title;
+	}
+	public String getCategory() {
+		return category_id;
+	}
+	public void setCategory(String category_id) {
+		this.category_id = category_id;
 	}
 	public String getAuthor() {
-		return author;
+		return author_id;
 	}
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthor(String author_id) {
+		this.author_id = author_id;
 	}
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	

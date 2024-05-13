@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+import java.util.*;
 
 import nguyenngocanhthu.BookStoreManagement.entity.Books;
 import nguyenngocanhthu.BookStoreManagement.services.BookServices;
@@ -26,8 +28,12 @@ public class HomeController {
 	}
 	
 	@GetMapping("/available_books")
-	public String getAllBook() {
-		return "bookList";
+	public ModelAndView getAllBook() {
+		List<Books>list=service.getAllBook();
+//		ModelAndView m = new ModelAndView();
+//		m.setViewName("bookList");
+//		m.addObject("book",list);
+		return new ModelAndView("bookList", "book", list);
 	}
 	
 	@GetMapping("/my_books")
