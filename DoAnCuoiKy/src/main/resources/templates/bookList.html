@@ -16,13 +16,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active text-white" aria-current="page" href="index">Home</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link text-white" href="available_books">Available Books</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">My Books</a>
+          <a class="nav-link text-white" href="author_register">Add Author</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="category_register">Add Category</a>
         </li>
       </ul>
       <div>
@@ -40,15 +40,16 @@
       <th scope="col">Category</th>
       <th scope="col">Author</th>
       <th scope="col">Price</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr th:each="b:${book}">
+    <tr th:each="b : ${book}">
       <!-- <th scope="row"></th> -->
       <td th:text="${b.id}"></td>
       <td th:text=${b.title}></td>
-      <td th:text=${b.category_id}></td>
-      <td th:text=${b.author_id}></td>
+      <td th:text=${b.category.name}></td>
+      <td th:text=${b.author.name}></td>
       <td th:text=${b.price}></td>
       <td><a class="btn btn-secondary btn-sm">Add To My book</a></td>
     </tr>

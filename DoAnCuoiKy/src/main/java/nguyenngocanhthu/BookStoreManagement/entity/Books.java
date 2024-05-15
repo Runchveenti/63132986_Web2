@@ -17,12 +17,12 @@ public class Books {
 	@Column(name="title")
 	private String title;
 	@Column(name="category_id")
-	private String category_id;
+	private int category_id;
 	@Column(name="author_id")
-	private String author_id;
+	private int author_id;
 	@Column(name="price")
 	private double price;
-	public Books(int id, String title, String category_id, String author_id, double price) {
+	public Books(int id, String title, int category_id, int author_id, double price) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -46,16 +46,16 @@ public class Books {
 	public void setName(String title) {
 		this.title = title;
 	}
-	public String getCategory() {
+	public int getCategory() {
 		return category_id;
 	}
-	public void setCategory(String category_id) {
+	public void setCategory(int category_id) {
 		this.category_id = category_id;
 	}
-	public String getAuthor() {
+	public int getAuthor() {
 		return author_id;
 	}
-	public void setAuthor(String author_id) {
+	public void setAuthor(int author_id) {
 		this.author_id = author_id;
 	}
 	public double getPrice() {
