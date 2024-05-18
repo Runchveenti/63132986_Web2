@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Category</title>
+    <title>Register Author</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <style>
         body {
@@ -41,13 +41,14 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark p-8">
-  <div class="container-fluid">
-    <a class="navbar-brand text-warning" href="index">Add Author</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-      		<a class="nav-link text-info" href="book_register">New Book Register</a>
-</nav>
+  	<div class="container-fluid">
+    	<a class="navbar-brand text-warning" href="index">Add Author</a>
+    		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      			<span class="navbar-toggler-icon"></span>
+    		</button>
+      	<a class="nav-link text-info" href="book_register">New Book Register</a>
+    </div>
+	</nav>
  
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -56,10 +57,11 @@
                         <h3 class="card-title text-center">Create New Author</h3>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/save_author}" th:object="${author}" method="post">
+                        <form th:action="@{/save_author}" th:object="${author}" method="post" onsubmit="return validateForm()">
                             <div class="mb-3">
                                 <label for="name" class="form-label">New Author</label>
                                 <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter author name">
+                                <div id="nameError" class="invalid-feedback">Please enter an author name!</div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Add</button>
                         </form>
@@ -67,6 +69,21 @@
                 </div>
             </div>
         </div>
-    </div>
+	  	<script>
+	  		function validateForm(){
+	  			var nameInput = document.getElementById("name");
+	  			var nameError = document.getElementById("nameError");
+	  			
+	  			if (nameInput.value.trim() === "") {
+	  				nameError.style.display = "block";
+	  				nameInput.classList.add("is-invalid");
+	  				return false;   /* Ngăn chặn việc gửi form */
+	  			} else {
+	  				nameError.style.display = "none";
+	  				nameInput.classList.remove("is-invalid");
+	  				return true;  /* Cho phép gửi form */
+	  			}
+	  		}
+	  	</script>
 </body>
 </html>

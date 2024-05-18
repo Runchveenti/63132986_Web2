@@ -47,6 +47,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
       		<a class="nav-link text-info" href="book_register">New Book Register</a>
+     </div>
 </nav>
  
         <div class="row justify-content-center">
@@ -56,10 +57,11 @@
                         <h3 class="card-title text-center">Create New Category</h3>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/save_category}" th:object="${category}" method="post">
+                        <form th:action="@{/save_category}" th:object="${category}" method="post" onsubmit="return validateForm()">
                             <div class="mb-3">
                                 <label for="name" class="form-label">New Category</label>
                                 <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter category name">
+                                <div id="nameError" class="invalid-feedback">Please enter a category name!</div>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">Add</button>
                         </form>
@@ -67,6 +69,21 @@
                 </div>
             </div>
         </div>
-    </div>
+   		<script>
+	  		function validateForm(){
+	  			var nameInput = document.getElementById("name");
+	  			var nameError = document.getElementById("nameError");
+	  			
+	  			if (nameInput.value.trim() === "") {
+	  				nameError.style.display = "block";
+	  				nameInput.classList.add("is-invalid");
+	  				return false;   /* Ngăn chặn việc gửi form */
+	  			} else {
+	  				nameError.style.display = "none";
+	  				nameInput.classList.remove("is-invalid");
+	  				return true;  /* Cho phép gửi form */
+	  			}
+	  		}
+	  	</script>
 </body>
 </html>
