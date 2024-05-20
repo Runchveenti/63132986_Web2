@@ -44,14 +44,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr th:each="b : ${book}">
-      <!-- <th scope="row"></th> -->
-      <td th:text="${b.id}"></td>
-      <td th:text=${b.title}></td>
-      <td th:text=${b.category.name}></td>
-      <td th:text=${b.author.name}></td>
-      <td th:text=${b.price}></td>
-      <td><a class="btn btn-secondary btn-sm">Add To My book</a></td>
+    <tr th:each="b : ${books}">
+        <td th:text="${b.id}"></td>
+        <td th:text="${b.title}"></td>
+        <td th:text="${b.category_id}"></td>
+        <td th:text="${b.author_id}"></td>
+        <td th:text="${b.price}"></td>
+        <td><a class="btn btn-secondary btn-sm">Add To My Book</a></td>
     </tr>
    </tbody>
 </table>

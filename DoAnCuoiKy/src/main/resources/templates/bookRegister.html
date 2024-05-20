@@ -90,13 +90,6 @@
             <label for="category" class="form-label">Category</label>
             <select class="form-select" id="category" name="category_id" required>
                 <option value="">Select a book category</option>
-                <option value="1">Comic book</option>
-                <option value="2">Fairy tale</option>
-                <option value="3">Myth</option>
-                <option value="4">Detective story</option>
-                <option value="5">Funny story</option>
-                <option value="6">Fable</option>
-                <option value="7">Ghost story</option>
                 <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
             </select>
             <div class="invalid-feedback" id="categoryError">Please select a category!</div>
