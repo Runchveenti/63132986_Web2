@@ -34,14 +34,15 @@ public class HomeController {
 		return "bookRegister";
 	}
 	
-	@GetMapping("/available_books")
-	public ModelAndView getAllBook() {
-		List<Books>list=service.getAllBook();
-//		ModelAndView m = new ModelAndView();
-//		m.setViewName("bookList");
-//		m.addObject("book",list);
-		return new ModelAndView("bookList", "book", list);
-	}
+//	@GetMapping("/available_books")
+//	public ModelAndView getAllBook() {
+//		List<Books>list=service.getAllBook();
+////		ModelAndView m = new ModelAndView();
+////		m.setViewName("bookList");
+////		m.addObject("book",list);
+//		return new ModelAndView("bookList", "book", list);
+//	}
+
 	
 	@GetMapping("/my_books")
 	public String getMyBooks() {
