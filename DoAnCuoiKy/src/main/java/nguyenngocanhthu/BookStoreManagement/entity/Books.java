@@ -1,40 +1,49 @@
 package nguyenngocanhthu.BookStoreManagement.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name="book")
+@Table(name = "book")
 public class Books {
-	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	@Column(name="title")
-	private String title;
-	@Column(name="category_id")
-	private Integer category_id;
-	@Column(name="author_id")
-	private Integer author_id;
-	@Column(name="price")
-	private double price;
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
-	public Books() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+    @Column(name = "title")
+    private String title;
 
-	public Books(int id, String title, Integer category_id, Integer author_id, double price) {
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "author_id")
+    private Author author;
+
+    @Column(name = "price")
+    private double price;
+    
+    @Column(name = "author")
+    private String authorName;
+
+    @Column(name = "category")
+    private String categoryName;
+    
+    public Books() {
+        super();
+    }
+
+	public Books(int id, String title, Category category, Author author, double price, String authorName,
+			String categoryName) {
 		super();
 		this.id = id;
 		this.title = title;
-		this.category_id = category_id;
-		this.author_id = author_id;
+		this.category = category;
+		this.author = author;
 		this.price = price;
+		this.authorName = authorName;
+		this.categoryName = categoryName;
 	}
 
 	public int getId() {
@@ -53,20 +62,20 @@ public class Books {
 		this.title = title;
 	}
 
-	public Integer getCategory_id() {
-		return category_id;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategory_id(Integer category_id) {
-		this.category_id = category_id;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
-	public Integer getAuthor_id() {
-		return author_id;
+	public Author getAuthor() {
+		return author;
 	}
 
-	public void setAuthor_id(Integer author_id) {
-		this.author_id = author_id;
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 	public double getPrice() {
@@ -76,6 +85,24 @@ public class Books {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
-	
+
+	public String getAuthorName() {
+		return authorName;
+	}
+
+	public void setAuthorName(String authorName) {
+		this.authorName = authorName;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+    
+
+    
 }

@@ -80,33 +80,25 @@
 </nav>
 <div class="container my-3 p-5 container-form">
     <h4 class="text-center header">New Book Register</h4>
-    <form class="col-md-6 offset-md-3" th:action="@{/save}" method="post">
+    <form class="col-md-6 offset-md-3" th:action="@{/save}" th:object="${book}" method="post">
         <div class="mb-3">
             <label for="title" class="form-label">Name</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <input type="text" class="form-control" id="title" th:field="*{title}">
         </div>
 
         <div class="mb-3">
-            <label for="category" class="form-label">Category</label>
-            <select class="form-select" id="category" name="category_id" required>
-                <option value="">Select a book category</option>
-                <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
-            </select>
-            <div class="invalid-feedback" id="categoryError">Please select a category!</div>
+            <label for="authorName" class="form-label">Author Name</label>
+            <input type="text" class="form-control" id="authorName" th:field="*{authorName}">
         </div>
 
         <div class="mb-3">
-            <label for="author" class="form-label">Author</label>
-            <select class="form-select" id="author" name="author_id" required>
-                <option value="">Select an author</option>
-                <option th:each="author : ${authors}" th:value="${author.id}" th:text="${author.name}"></option>
-            </select>
-            <div class="invalid-feedback" id="authorError">Please select an author!</div>
+            <label for="categoryName" class="form-label">Category Name</label>
+            <input type="text" class="form-control" id="categoryName" th:field="*{categoryName}">
         </div>
 
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="text" class="form-control" id="price" name="price">
+            <input type="text" class="form-control" id="price" th:field="*{price}">
         </div>
 
         <center><button type="submit" id="button_submit" class="btn btn-primary">Create Book</button></center>
