@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -32,18 +36,36 @@ public class BookController {
 //		return "bookList";
 //	}
 	
+//	// Search and sort book 
+//	@GetMapping("/available_books")
+//    public String getAll(Model model,
+//                        @RequestParam(value = "keyword", required = false) String keyword,
+//                       @RequestParam(value = "sortBy", required = false, defaultValue = "title") String sortBy) {
+//      List<Books> dsBK = bookServices.searchAndSortBooks(keyword, sortBy);
+//       model.addAttribute("dsBK", dsBK);
+//        model.addAttribute("keyword", keyword);
+//        model.addAttribute("sortBy", sortBy);
+//        return "bookList";
+//    }
+	
 	// Search and sort book 
-	@GetMapping("/available_books")
-    public String getAll(Model model,
-                         @RequestParam(value = "keyword", required = false) String keyword,
-                         @RequestParam(value = "sortBy", required = false, defaultValue = "title") String sortBy) {
-        List<Books> dsBK = bookServices.searchAndSortBooks(keyword, sortBy);
-        model.addAttribute("dsBK", dsBK);
+	@GetMapping("/search_sort_books")
+    public String searchAndSortBooks(
+            @RequestParam(value = "keyword", required = false) String keyword,
+            @RequestParam(value = "sortBy", required = false, defaultValue = "title") String sortBy,
+            @RequestParam(defaultValue = "0") int page,
+            Model model) {
+
+        Pageable pageable = PageRequest.of(page, 5, Sort.by(sortBy));
+        Page<Books> dsBook = bookServices.searchAndSortBooks(keyword, pageable);
+
+        model.addAttribute("dsBook", dsBook);
         model.addAttribute("keyword", keyword);
         model.addAttribute("sortBy", sortBy);
-        return "bookList";
+        model.addAttribute("currentPage", page);
+        return "searchSortBookList";
     }
-
+	
 	
 	@GetMapping("/book_details/{id}")
     public String getBookDetails(@PathVariable("id") Long id, Model model) {

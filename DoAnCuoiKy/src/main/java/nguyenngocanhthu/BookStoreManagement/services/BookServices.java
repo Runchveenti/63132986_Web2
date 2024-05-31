@@ -41,12 +41,12 @@ public class BookServices {
     }
 	
 	// Search and sort books
-    public List<Books> searchAndSortBooks(String keyword, String sortBy) {
+	public Page<Books> searchAndSortBooks(String keyword, Pageable pageable) {
         if (keyword == null || keyword.isEmpty()) {
-            return bRepo.findAll(Sort.by(sortBy));
+            return bRepo.findAll(pageable);
         } else {
             return bRepo.findByTitleContainingIgnoreCaseOrAuthorNameContainingIgnoreCaseOrCategoryNameContainingIgnoreCase(
-                    keyword, keyword, keyword, Sort.by(sortBy));
+                    keyword, keyword, keyword, pageable);
         }
     }
 	

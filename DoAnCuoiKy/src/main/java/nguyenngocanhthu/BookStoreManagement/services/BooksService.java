@@ -10,7 +10,11 @@ import nguyenngocanhthu.BookStoreManagement.entity.Books;
 
 @Service
 public interface BooksService {
+	// Phân Trang
 	List<Books> getAllBooks();
 	Page<Books> getAllBooks(Pageable pageable);
+	
+	// Tìm kiếm và lọc sách 
+	Page<Books> searchAndSortBooks(String keyword, Pageable pageable);  
 }
 

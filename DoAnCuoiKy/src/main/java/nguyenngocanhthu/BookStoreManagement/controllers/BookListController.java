@@ -18,11 +18,11 @@ public class BookListController {
 	@Autowired 
 	BooksService bookListService; 
 	
-	@GetMapping("/books")
+	@GetMapping("/available_books")
 	public String getAllBooks(@RequestParam(defaultValue = "0") int page, Model model) {
         Pageable pageable = PageRequest.of(page, 5); 
         Page<Books> dsBook = bookListService.getAllBooks(pageable);
         model.addAttribute("dsBook", dsBook);
-        return "Books";
+        return "bookList";
     }
 }

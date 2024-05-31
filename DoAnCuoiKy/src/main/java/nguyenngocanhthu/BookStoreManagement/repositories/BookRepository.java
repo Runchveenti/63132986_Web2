@@ -15,7 +15,12 @@ import nguyenngocanhthu.BookStoreManagement.entity.Books;
 @Repository
 public interface BookRepository extends JpaRepository<Books, Integer> {
 	Optional<Books> findById(Long id);
+	
 	Page<Books> findAll(Pageable pageable);
+	
 	List<Books> findByTitleContainingIgnoreCaseOrAuthorNameContainingIgnoreCaseOrCategoryNameContainingIgnoreCase(
 	        String title, String authorName, String categoryName, Sort sort);
+	
+	Page<Books> findByTitleContainingIgnoreCaseOrAuthorNameContainingIgnoreCaseOrCategoryNameContainingIgnoreCase(
+			String keyword, String keyword2, String keyword3, Pageable pageable);
 }
